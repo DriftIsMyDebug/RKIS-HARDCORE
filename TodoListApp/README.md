@@ -1,4 +1,11 @@
-# TodoListApp - Lesson 2
+# TodoListApp - Lesson 3
 
 Console application built with C# and modern top-level statements. 
-It requests user data (first name, last name, birth year) and dynamically calculates their current age.
+
+## New Features Decription
+
+* `help` - list of all available commands
+* `profile` - display user profile data
+* `add "text"` - add a new task to the list
+* `view` - show all active tasks
+* `exit` - exit the application
