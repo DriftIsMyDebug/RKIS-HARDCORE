@@ -68,6 +68,24 @@ while (true) // loop for checking command
         }
 
         string taskText = parts[1].Trim('"'); // remove quotes from string
+
+        // dynamic array logic
+        
+        if (taskCount >= todos.Length)
+        {
+            Console.WriteLine($"[System] Array full ({todos.Length} items). Resizing x2...");
+
+            string[] newTodos = new string[todos.Length * 2];
+
+            for (int i = 0; i < todos.Length; i++)
+            {
+                newTodos[i] = todos[i];
+            }
+            todos = newTodos;
+        }
+        todos[taskCount] = taskText;
+        taskCount++;
+        Console.WriteLine($"Task added: {taskText}");
     }
     else if (command.Equals("view", StringComparison.OrdinalIgnoreCase))
     {
