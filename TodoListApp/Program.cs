@@ -1,6 +1,4 @@
-﻿using System;
-
-Console.WriteLine("Application developed by: Nozdrin VV");
+﻿Console.WriteLine("Application developed by: Nozdrin VV");
 Console.WriteLine("=============================================");
 
 
@@ -23,7 +21,6 @@ int age = currentYear - birthYear;
 
 Console.WriteLine("---------------------------------------------");
 Console.WriteLine($"User added: {name} {surname}, age - {age}");
-
 
 Console.WriteLine("Welcome to TodoListApp! Type 'help' to see available commands.");
 Console.WriteLine("---------------------------------------------");
@@ -57,12 +54,13 @@ while (true) // loop for checking command
     {
         Console.WriteLine($"User Profile: {name} {surname}, Born: {birthYear} (Age: {age})");
     }
-    else if (command.StartsWith("add", StringComparison.OrdinalIgnoreCase))
+    else if (command.StartsWith("add ", StringComparison.OrdinalIgnoreCase))
     {
         // Split input into 2 parts 
-        string[] parts = command.Split(new[] {' '}, 2);
+        string[] parts = command.Split(new[] { ' ' }, 2);
 
-        if (parts.Length < 2 || string.IsNullOrWhiteSpace(parts[1])) {
+        if (parts.Length < 2 || string.IsNullOrWhiteSpace(parts[1]))
+        {
             Console.WriteLine("Error: Task description cannot be empty. Use: add \"task\"");
             continue;
         }
@@ -70,7 +68,7 @@ while (true) // loop for checking command
         string taskText = parts[1].Trim('"'); // remove quotes from string
 
         // dynamic array logic
-        
+
         if (taskCount >= todos.Length)
         {
             Console.WriteLine($"[System] Array full ({todos.Length} items). Resizing x2...");
@@ -89,7 +87,18 @@ while (true) // loop for checking command
     }
     else if (command.Equals("view", StringComparison.OrdinalIgnoreCase))
     {
+        Console.WriteLine("Active Tasks");
+        bool hasTasks = false;
 
+        for (int i = 0; i < todos.Length; i++)
+        {
+            if (!string.IsNullOrEmpty(todos[i]))
+            {
+                Console.WriteLine($"{i + 1}. {todos[i]}");
+                hasTasks = true;
+            }
+        }
+        if (!hasTasks) Console.WriteLine("No tasks found");
     }
     else
     {
