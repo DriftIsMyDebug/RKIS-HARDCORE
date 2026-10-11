@@ -54,7 +54,7 @@ while (true) // loop for checking command
     {
         Console.WriteLine($"User Profile: {name} {surname}, Born: {birthYear} (Age: {age})");
     }
-    else if (command.StartsWith("add ", StringComparison.OrdinalIgnoreCase))
+    else if (command.StartsWith("add", StringComparison.OrdinalIgnoreCase))
     {
         // Split input into 2 parts 
         string[] parts = command.Split(new[] { ' ' }, 2);
